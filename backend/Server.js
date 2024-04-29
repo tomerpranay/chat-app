@@ -20,6 +20,16 @@ app.use(express.json())
 app.get("/",(req,res)=>{
     res.send("Api started")
 })
+function printSomething() {
+    console.log("Server Running Okay");
+}
+
+// Convert 14 minutes to milliseconds
+const intervalInMilliseconds = 14 * 60 * 1000;
+
+// Set up the interval
+setInterval(printSomething, intervalInMilliseconds);
+
 app.use("/api/user",userroutes)
 app.use("/api/chat", chatroutes)
 app.use("/api/message", messageroutes)
