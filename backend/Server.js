@@ -10,6 +10,7 @@ const { connectDB } = require('./config/db.js');
 const userroutes =require('./routes/userroutes.js')
 const chatroutes=require('./routes/chatroutes.js')
 const messageroutes = require('./routes/messageroutes.js')
+
 connectDB()
 app.use(cors({
     origin: "*",
@@ -35,6 +36,7 @@ app.use("/api/chat", chatroutes)
 app.use("/api/message", messageroutes)
 app.use(notFound);
 app.use(errorHandler);
+
 const server=app.listen(port,console.log(`Server started om port ${port}`))
 const io=require('socket.io')(server,{
     pingTimeout:60000,
